@@ -4,13 +4,13 @@
 ## Graphs
 
 There are four graphs in the dataset. They are:
-1. (Cumulative Cases by County)[/covid_ireland/plots/ConfirmedCovidCases_cumulative.html]. This is the raw data from: https://covid19ireland-geohive.hub.arcgis.com/datasets/d9be85b30d7748b5b7c09450b8aede63_0.
+1. [Cumulative Cases by County](/covid_ireland/plots/ConfirmedCovidCases_cumulative.html). This is the raw data from: https://covid19ireland-geohive.hub.arcgis.com/datasets/d9be85b30d7748b5b7c09450b8aede63_0.
 
-2. (Cumulative Cases by County, excluding Dublin)[/covid_ireland/plots/ConfirmedCovidCases_cumulative_no_dublin.html]. Because Dublin is so much bigger than any other county, the detail of the other twenty-five counties gets lost. This the data above minus Dublin.
+2. [Cumulative Cases by County, excluding Dublin](/covid_ireland/plots/ConfirmedCovidCases_cumulative_no_dublin.html). Because Dublin is so much bigger than any other county, the detail of the other twenty-five counties gets lost. This the data above minus Dublin.
 
-3. (Seven-Day Average of Cases by County)[/covid_ireland/plots/ConfirmedCovidCases_seven_day_average.html]. Again, from the official data, with a seven-day-average replacing the cumulative count. A seven-day average because a daily count is very noisy.
+3. [Seven-Day Average of Cases by County](/covid_ireland/plots/ConfirmedCovidCases_seven_day_average.html). Again, from the official data, with a seven-day-average replacing the cumulative count. A seven-day average because a daily count is very noisy.
 
-4. (Seven-Day Average of Cases by County, excluding Dublin)[/covid_ireland/plots/ConfirmedCovidCases_seven_day_average_no_dublin.html]. Again, Dublin excluded to make the other counties' data clearer.
+4. [Seven-Day Average of Cases by County, excluding Dublin](/covid_ireland/plots/ConfirmedCovidCases_seven_day_average_no_dublin.html). Again, Dublin excluded to make the other counties' data clearer.
 
 ## A Note on Population Proportion of Cases
 The cases in one hundred thousand is a little bit of a showbiz stat - it looks more impressive than it is. The figure is got by taking the percentage of cases in each county, and then multiplying that percentage by one thousand. The reason for this, I suspect, is to make an impression.
