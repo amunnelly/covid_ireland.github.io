@@ -1,4 +1,4 @@
-# COVID-19 AND THE REPUBLIC OF IRELAND
+# Covid-19 and the Republic of Ireland
 
 ## Graphs
 
