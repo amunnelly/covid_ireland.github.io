@@ -9,7 +9,7 @@ class CovidPlotter(object):
 
 	def __init__(self, metric, cumulative, dublin):
 		self.metric = metric
-		self.cumulative = True
+		self.cumulative = cumulative
 		self.dublin = dublin
 		self.df = pd.read_csv('data/Covid19CountyStatisticsHPSCIreland.csv')
 		self.df['TimeStamp'] = pd.to_datetime(self.df['TimeStamp'])
@@ -43,17 +43,17 @@ class CovidPlotter(object):
 		if roll > 0:
 			rolling = dailies['ConfirmedCovidCases'].rolling(roll).mean()
 			dailies['ConfirmedCovidCases'] = rolling
-
 		return dailies
 
+
 	def create_filename(self):
-		count = "_seven-day_average"
+		count_ = "_seven-day_average"
 		dublin = "_excluding_dublin"
 		if self.cumulative:
 			count_ = "_cumulative"
 		if self.dublin:
 			dublin = ""
-		filename = "".join([self.metric.lower(), cumulative, dublin])
+		filename = "".join([self.metric.lower(), count_, dublin])
 		return "".join(["plots/", filename, ".html"])
 		
 
@@ -64,13 +64,14 @@ class CovidPlotter(object):
 		i = 0
 		j = 0
 		filename = self.create_filename()
+		print(filename)
 		bp.output_file(filename, title="Covid Cases")
 		p = bp.figure(title="Covid Cases",
 			x_axis_type="datetime",
-			width=1024,
-			height=768)
+			width=800,
+			height=600)
 		for a, b in counties:
-			if self.Dublin==False:
+			if self.dublin==False and a =="Dublin":
 				continue
 			temp = b.copy()
 			temp['StrDate'] = temp['TimeStamp'].apply(lambda x: x.strftime("%a, %b %d"))
@@ -90,14 +91,23 @@ class CovidPlotter(object):
 
 		p.legend.click_policy="hide"
 		p.legend.label_text_font_size = '12px'
-		p.legend.label_text_font = 'Arial'
+		p.legend.label_text_font = 'FreeSans'
 		p.legend.location = "top_left" #(15, 700)
 
 		tools = bm.HoverTool(tooltips=[("Date","@StrDate"),
 										("County","@CountyName"),
 										("Cases","@ConfirmedCovidCases")])
 		p.add_tools(tools)
+
+		p.title.text_font = "FreeSans"
+		p.title.text_font_size = "18px"
+
+
+
 		bp.show(p)
 
 if __name__ == "__main__":
+	x = CovidPlotter('ConfirmedCovidCases', True, True)
 	x = CovidPlotter('ConfirmedCovidCases', True, False)
+	x = CovidPlotter('ConfirmedCovidCases', False, False)
+	x = CovidPlotter('ConfirmedCovidCases', False, True)
