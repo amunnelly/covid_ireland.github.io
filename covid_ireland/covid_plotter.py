@@ -7,15 +7,21 @@ import bokeh.palettes as bpal
 
 class CovidPlotter(object):
 
-	def __init__(self, metric):
+	def __init__(self, metric, cumulative, dublin):
 		self.metric = metric
+		self.cumulative = True
+		self.dublin = dublin
 		self.df = pd.read_csv('data/Covid19CountyStatisticsHPSCIreland.csv')
 		self.df['TimeStamp'] = pd.to_datetime(self.df['TimeStamp'])
 		self.counties = self.df.groupby('CountyName')
 		self.dailies = self.identify_daily_figures(self.counties, 7)
 		self.daily_counties = self.dailies.groupby('CountyName')
 		
-		self.create_plot(self.daily_counties)
+		if cumulative:
+			self.create_plot(self.counties)
+		else:
+			self.create_plot(self.daily_counties)
+
 
 	def identify_daily_figures(self, counties, roll=0):
 		"""
@@ -83,4 +89,4 @@ class CovidPlotter(object):
 		bp.show(p)
 
 if __name__ == "__main__":
-	x = CovidPlotter('ConfirmedCovidCases')
+	x = CovidPlotter('ConfirmedCovidCases', True, False)
