@@ -46,20 +46,31 @@ class CovidPlotter(object):
 
 		return dailies
 
+	def create_filename(self):
+		count = "_seven-day_average"
+		dublin = "_excluding_dublin"
+		if self.cumulative:
+			count_ = "_cumulative"
+		if self.dublin:
+			dublin = ""
+		filename = "".join([self.metric.lower(), cumulative, dublin])
+		return "".join(["plots/", filename, ".html"])
+		
+
 
 	def create_plot(self, counties):
 		colors = bpal.Category20[14]
 		dash = ['solid', 'dashed']
 		i = 0
 		j = 0
-		filename = "".join(["plots/", self.metric, ".html"])
+		filename = self.create_filename()
 		bp.output_file(filename, title="Covid Cases")
 		p = bp.figure(title="Covid Cases",
 			x_axis_type="datetime",
 			width=1024,
 			height=768)
 		for a, b in counties:
-			if a == "Dublin":
+			if self.Dublin==False:
 				continue
 			temp = b.copy()
 			temp['StrDate'] = temp['TimeStamp'].apply(lambda x: x.strftime("%a, %b %d"))
