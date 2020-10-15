@@ -67,7 +67,7 @@ class CovidPlotter(object):
 		p = bp.figure(title="Covid Cases",
 			x_axis_type="datetime",
 			width=1200,
-			height=600)
+			height=740)
 		legend_items = []
 		for a, b in counties:
 			if self.dublin==False and a =="Dublin":
@@ -97,14 +97,6 @@ class CovidPlotter(object):
 
 		p.add_layout(legend, 'right')
 
-		# p2 = bp.figure(height=600,
-		# 	width=400)
-		# for legend in legend_items:
-		# 	legend = bm.Legend(items=legend_items,
-		# 						orientation='vertical',
-		# 						location='top_right')
-		# 	p.add_layout(legend)
-
 		p.legend.click_policy="hide"
 		p.legend.label_text_font_size = '12px'
 		p.legend.label_text_font = 'FreeSans'
@@ -131,5 +123,5 @@ if __name__ == "__main__":
 	x = CovidPlotter('ConfirmedCovidCases', False, False)
 	x = CovidPlotter('ConfirmedCovidCases', False, True)
 	x = CovidPlotter('PopulationProportionCovidCases', True, True)
-	x = CovidPlotter('PopulationProportionCovidCases', False, True)
+	# x = CovidPlotter('PopulationProportionCovidCases', False, True)
 	
