@@ -1,21 +1,17 @@
+# Plotting Irish Covid Cases
 
+## Data
 
+The data is sourced from [the official government source](https://covid19ireland-geohive.hub.arcgis.com/datasets/d9be85b30d7748b5b7c09450b8aede63_0).
 
-## Graphs
+## `covid_plotter.py`
 
-There are four graphs in the dataset. They are:
-1. [Cumulative Cases by County](/covid_ireland/plots/ConfirmedCovidCases_cumulative.html). This is the raw data from: https://covid19ireland-geohive.hub.arcgis.com/datasets/d9be85b30d7748b5b7c09450b8aede63_0.
+The program reads the data and creates two sets of data. The first has the data as is, with cumulative counts of cases broken by down county. The second set has individual counts of cases by day by county, averaged over seven days.
 
-2. [Cumulative Cases by County, excluding Dublin](/covid_ireland/plots/ConfirmedCovidCases_cumulative_no_dublin.html). Because Dublin is so much bigger than any other county, the detail of the other twenty-five counties gets lost. This the data above minus Dublin.
-
-3. [Seven-Day Average of Cases by County](/covid_ireland/plots/ConfirmedCovidCases_seven_day_average.html). Again, from the official data, with a seven-day-average replacing the cumulative count. A seven-day average because a daily count is very noisy.
-
-4. [Seven-Day Average of Cases by County, excluding Dublin](/covid_ireland/plots/ConfirmedCovidCases_seven_day_average_no_dublin.html). Again, Dublin excluded to make the other counties' data clearer.
-
-## A Note on Population Proportion of Cases
-The cases in one hundred thousand is a little bit of a showbiz stat - it looks more impressive than it is. The figure is got by taking the percentage of cases in each county, and then multiplying that percentage by one thousand. The reason for this, I suspect, is to make an impression.
-
-Cavan has the highest PopulationProportionCovidCases with 1,526. That gets your attention in a way that 1.5% of the population of Cavan currently testing or having previously tested positive for the virus in six months doesn't.
-
-## Meaning
-Best left for the epidemiologists. All I can do is count the things. After that, I'm as lost as anyone else.
+### Graphs
+From these two data sets, five sets of graphs are created:
+1. Cumulative cases by day by county, including Dublin
+2. Cumulative cases by day by county, excluding Dublin
+3. Seven-day-average count of cases by day by county, including Dublin
+4. Seven-day-average count of cases by day by county, excluding Dublin
+5. The official "Population Proportion of cases per 100,000 people" statistic.
