@@ -4,6 +4,7 @@ import bokeh.plotting as bp
 import bokeh.models as bm
 import bokeh.layouts as blay
 import bokeh.palettes as bpal
+import json
 
 class CovidPlotter(object):
 
@@ -12,6 +13,8 @@ class CovidPlotter(object):
 		self.cumulative = cumulative
 		self.dublin = dublin
 		self.df = pd.read_csv('data/Covid19CountyStatisticsHPSCIreland.csv')
+		with open('colors.json') as f:
+			self.colors = json.load(f)
 		self.df['TimeStamp'] = pd.to_datetime(self.df['TimeStamp'])
 		self.counties = self.df.groupby('CountyName')
 		self.dailies = self.identify_daily_figures(self.counties, 7)
@@ -39,10 +42,10 @@ class CovidPlotter(object):
 				prior = temp['ConfirmedCovidCases'].iloc[i-1]
 				cases = current - prior
 				holder.append([date_, a, cases])
-		dailies = pd.DataFrame(holder, columns=["TimeStamp", "CountyName", "ConfirmedCovidCases"])
+		dailies = pd.DataFrame(holder, columns=["TimeStamp", "CountyName", self.metric])
 		if roll > 0:
-			rolling = dailies['ConfirmedCovidCases'].rolling(roll).mean()
-			dailies['ConfirmedCovidCases'] = rolling
+			rolling = dailies[self.metric].rolling(roll).mean()
+			dailies[self.metric] = rolling
 		return dailies
 
 
@@ -79,9 +82,9 @@ class CovidPlotter(object):
 			p.line("TimeStamp",
 				self.metric,
 				source=source,
-				line_width=3,
-				line_color=colors[i],
-				line_dash=dash[j],
+				line_width=2,
+				line_color=self.colors[a]['color'],
+				line_dash=self.colors[a]['dash'],
 				legend_label=a)
 			if i < 12:
 				i += 1
@@ -102,12 +105,15 @@ class CovidPlotter(object):
 		p.title.text_font = "FreeSans"
 		p.title.text_font_size = "18px"
 
+		p.background_fill_color = 'gray'
+		p.background_fill_alpha = 0.67
+
 
 
 		bp.show(p)
 
 if __name__ == "__main__":
 	x = CovidPlotter('ConfirmedCovidCases', True, True)
-	x = CovidPlotter('ConfirmedCovidCases', True, False)
-	x = CovidPlotter('ConfirmedCovidCases', False, False)
-	x = CovidPlotter('ConfirmedCovidCases', False, True)
+	# x = CovidPlotter('ConfirmedCovidCases', True, False)
+	# x = CovidPlotter('ConfirmedCovidCases', False, False)
+	# x = CovidPlotter('ConfirmedCovidCases', False, True)
