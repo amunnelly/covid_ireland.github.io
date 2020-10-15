@@ -62,35 +62,48 @@ class CovidPlotter(object):
 
 
 	def create_plot(self, counties):
-		colors = bpal.Category20[14]
-		dash = ['solid', 'dashed']
-		i = 0
-		j = 0
 		filename = self.create_filename()
-		print(filename)
 		bp.output_file(filename, title="Covid Cases")
 		p = bp.figure(title="Covid Cases",
 			x_axis_type="datetime",
-			width=800,
+			width=1200,
 			height=600)
+		legend_items = []
 		for a, b in counties:
 			if self.dublin==False and a =="Dublin":
 				continue
 			temp = b.copy()
 			temp['StrDate'] = temp['TimeStamp'].apply(lambda x: x.strftime("%a, %b %d"))
 			source = bp.ColumnDataSource(temp)
-			p.line("TimeStamp",
+			leg = p.line("TimeStamp",
 				self.metric,
 				source=source,
 				line_width=2,
 				line_color=self.colors[a]['color'],
-				line_dash=self.colors[a]['dash'],
-				legend_label=a)
-			if i < 12:
-				i += 1
-			else:
-				i = 0
-				j += 1
+				line_dash=self.colors[a]['dash'])
+				# legend_group='CountyName')
+				# legend_label=a)
+			legend_items.append((a, [leg]))
+
+
+
+		# p.add_layout(bm.LinearAxis(), "right")
+
+
+		legend = bm.Legend(items=legend_items,
+					location='top_right',
+					orientation='vertical',
+					border_line_color="black")
+
+		p.add_layout(legend, 'right')
+
+		# p2 = bp.figure(height=600,
+		# 	width=400)
+		# for legend in legend_items:
+		# 	legend = bm.Legend(items=legend_items,
+		# 						orientation='vertical',
+		# 						location='top_right')
+		# 	p.add_layout(legend)
 
 		p.legend.click_policy="hide"
 		p.legend.label_text_font_size = '12px'
@@ -106,7 +119,7 @@ class CovidPlotter(object):
 		p.title.text_font_size = "18px"
 
 		p.background_fill_color = 'gray'
-		p.background_fill_alpha = 0.67
+		p.background_fill_alpha = 0.5
 
 
 
@@ -114,6 +127,9 @@ class CovidPlotter(object):
 
 if __name__ == "__main__":
 	x = CovidPlotter('ConfirmedCovidCases', True, True)
-	# x = CovidPlotter('ConfirmedCovidCases', True, False)
-	# x = CovidPlotter('ConfirmedCovidCases', False, False)
-	# x = CovidPlotter('ConfirmedCovidCases', False, True)
+	x = CovidPlotter('ConfirmedCovidCases', True, False)
+	x = CovidPlotter('ConfirmedCovidCases', False, False)
+	x = CovidPlotter('ConfirmedCovidCases', False, True)
+	x = CovidPlotter('PopulationProportionCovidCases', True, True)
+	x = CovidPlotter('PopulationProportionCovidCases', False, True)
+	
