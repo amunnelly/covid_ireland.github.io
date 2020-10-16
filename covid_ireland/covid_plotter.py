@@ -67,7 +67,7 @@ class CovidPlotter(object):
 		p = bp.figure(title="Covid Cases",
 			x_axis_type="datetime",
 			width=1200,
-			height=740)
+			height=700)
 		legend_items = []
 		for a, b in counties:
 			if self.dublin==False and a =="Dublin":
@@ -81,13 +81,7 @@ class CovidPlotter(object):
 				line_width=2,
 				line_color=self.colors[a]['color'],
 				line_dash=self.colors[a]['dash'])
-				# legend_group='CountyName')
-				# legend_label=a)
 			legend_items.append((a, [leg]))
-
-
-
-		# p.add_layout(bm.LinearAxis(), "right")
 
 
 		legend = bm.Legend(items=legend_items,
@@ -99,15 +93,17 @@ class CovidPlotter(object):
 
 		p.legend.click_policy="hide"
 		p.legend.label_text_font_size = '12px'
-		p.legend.label_text_font = 'FreeSans'
-		p.legend.location = "top_left" #(15, 700)
+		p.legend.label_text_font = 'Helvetica'
+		p.legend.location = "top_left"
+		p.legend.background_fill_color = 'gray'
+		p.legend.background_fill_alpha = 0.5
 
 		tools = bm.HoverTool(tooltips=[("Date","@StrDate"),
 										("County","@CountyName"),
 										("Cases","@ConfirmedCovidCases")])
 		p.add_tools(tools)
 
-		p.title.text_font = "FreeSans"
+		p.title.text_font = "Helvetica"
 		p.title.text_font_size = "18px"
 
 		p.background_fill_color = 'gray'
@@ -123,5 +119,4 @@ if __name__ == "__main__":
 	x = CovidPlotter('ConfirmedCovidCases', False, False)
 	x = CovidPlotter('ConfirmedCovidCases', False, True)
 	x = CovidPlotter('PopulationProportionCovidCases', True, True)
-	# x = CovidPlotter('PopulationProportionCovidCases', False, True)
 	

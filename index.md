@@ -1,5 +1,3 @@
-# Covid-19 and the Republic of Ireland
-
 ## Graphs
 
 There are five graphs in the dataset. They are:
@@ -20,7 +18,7 @@ There are five graphs in the dataset. They are:
 
 ### A Note on Population Proportion of Cases
 
-Cavan has the highest PopulationProportionCovidCases with 1,526. It's hard to say that particularly matters - different counties have different populations and different sizes. These aren't like-for-like comparisons.
+Cavan has the highest `PopulationProportionCovidCases` with 1,526. It's hard to say that particularly matters - different counties have different populations and different sizes. These aren't like-for-like comparisons.
 
 What is may be interesting, however, is the way the graph shows different growth rates for different counties.
 
