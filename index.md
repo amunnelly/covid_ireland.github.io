@@ -1,3 +1,5 @@
+_Latest data point: October 14, 2020._
+
 ## Graphs
 
 There are five graphs in the dataset. They are:
