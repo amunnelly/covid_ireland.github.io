@@ -2,30 +2,32 @@ _Latest data point: October 14, 2020._
 
 ## Graphs
 
-There are six graphs in the dataset, covering two metrics, confirmed cases and cases per population unit.
+There are six graphs in the dataset, covering two metrics, confirmed cases and cases per population unit. This the raw data is taken from [the official government source](https://covid19ireland-geohive.hub.arcgis.com/datasets/d9be85b30d7748b5b7c09450b8aede63_0).
 
-### 
-1. [Cumulative Cases by County](/covid_ireland/plots/confirmedcovidcases_cumulative.html). This is the raw data from [the official government source](https://covid19ireland-geohive.hub.arcgis.com/datasets/d9be85b30d7748b5b7c09450b8aede63_0). The most recent date is October 5th, 2020.
+### Confirmed Covid Cases
+
+1. [Cumulative Cases by County](/covid_ireland/plots/confirmedcovidcases_cumulative.html). The data broken down by day and by county.
 
 2. [Cumulative Cases by County, excluding Dublin](/covid_ireland/plots/confirmedcovidcases_cumulative_excluding_dublin.html). Because Dublin is so much bigger than any other county, the detail of the other twenty-five counties gets lost. This the data above minus Dublin.
 
-3. [Seven-Day Average of Cases by County](/covid_ireland/plots/confirmedcovidcases_seven_day_average.html). Again, from the official data, with a seven-day-average replacing the cumulative count. A seven-day-average because a daily count is very noisy.
+3. [Seven-Day Average of Cases by County](/covid_ireland/plots/confirmedcovidcases_seven_day_average.html). Again, from the official data, with a seven-day-average replacing the cumulative count. A seven-day-average because a daily count makes for a very noisy graph.
 
 4. [Seven-Day Average of Cases by County, excluding Dublin](/covid_ireland/plots/confirmedcovidcases_seven_day_average_excluding_dublin.html). Again, Dublin excluded to make the other counties' data clearer.
 
-5. [Population Proportion of Cases by County](/covid_ireland/plots/populationproportioncovidcases_cumulative.html).
+### Cases per Population Unit
 
-### Interacting with the Graphs
+The official data's preferred rate of change metric is `Population Proportion by County`, which is fine as far as it goes. However, neither population nor area is even distributed across the country, and this makes it a little less than satisfactory.
+
+5. [Population Proportion of Cases by County, cumulative](/covid_ireland/plots/populationproportioncovidcases_cumulative.html) is the graph of this offical metric.
+
+In an effort to even things out, I divided the county population by the county area as recorded in [Wikipedia](https://en.wikipedia.org/wiki/List_of_Irish_counties_by_area), and then expressed the number of cases divided by this population per square kilometre as `Case Density`. It's fine as far as it goes, but it doesn't really tell us that much more than the earlier graph. I include it for the sake of it, as much as anything.
+
+6. [Case Density](/covid_ireland/plots/casedensity_cumulative.html) 
+
+## Interacting with the Graphs
 
 * Click counties on and off by clicking on the county name in the legend
-* Hover over a line to see the county, date, and value (cumulative cases/seven-day-average, as appropriate)
+* Hover over a line to see the county, date, and number of cases at that date.
 
-### A Note on Population Proportion of Cases
-
-Cavan has the highest `PopulationProportionCovidCases` with 1,526. It's hard to say that particularly matters - different counties have different populations and different sizes. These aren't like-for-like comparisons.
-
-What is may be interesting, however, is the way the graph shows different growth rates for different counties.
-
-Most counties' growth rates show a fast rise in March/April, levelling off from April through to August, and then rising again in September. Some counties don't fit the pattern. Kildare's rate started increasing from the end of July, and hasn't really stopped. Offaly jumped for the first fortnight in August and then settled again. Donegal started rising before Cavan and Monaghan.
-
-These differences may or may not be significant. All we can say from this data is that they happened. Why they happened or how particular trends will continue into the future is impossible to determine from this data.
+## Usefulness of the Data
+The data is a record of what happened over the past six months broken down by county. It cannot tell us anything about the next six months, or year, or however long this is going to take. Sadly, the difficulties experienced in testing and tracing make that more or less impossible in the Irish case.
