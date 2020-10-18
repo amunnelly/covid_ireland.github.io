@@ -6,24 +6,32 @@ import bokeh.layouts as blay
 import bokeh.palettes as bpal
 import json
 
+
 class CovidPlotter(object):
 
-	def __init__(self, metric, cumulative, dublin):
+	def __init__(self, metric, cumulative, dublin, title):
 		self.metric = metric
 		self.cumulative = cumulative
 		self.dublin = dublin
+		self.title = title
 		self.df = pd.read_csv('data/Covid19CountyStatisticsHPSCIreland.csv')
-		with open('colors.json') as f:
-			self.colors = json.load(f)
+		with open('data/counties.json') as f:
+			self.counties = json.load(f)
 		self.df['TimeStamp'] = pd.to_datetime(self.df['TimeStamp'])
-		self.counties = self.df.groupby('CountyName')
-		self.dailies = self.identify_daily_figures(self.counties, 7)
+		self.find_case_density()
+		self.county_group = self.df.groupby('CountyName')
+		self.dailies = self.identify_daily_figures(self.county_group, 7)
 		self.daily_counties = self.dailies.groupby('CountyName')
 		
 		if cumulative:
-			self.create_plot(self.counties)
+			self.create_plot(self.county_group)
 		else:
 			self.create_plot(self.daily_counties)
+
+	def find_case_density(self):
+		self.df['Area'] = self.df['CountyName'].apply(lambda x: self.counties[x]['area'])
+		self.df['PopPerKmSquared'] = self.df['PopulationCensus16'] / self.df['Area']
+		self.df['CaseDensity'] = self.df['ConfirmedCovidCases'] / self.df['PopPerKmSquared']
 
 
 	def identify_daily_figures(self, counties, roll=0):
@@ -63,8 +71,8 @@ class CovidPlotter(object):
 
 	def create_plot(self, counties):
 		filename = self.create_filename()
-		bp.output_file(filename, title="Covid Cases")
-		p = bp.figure(title="Covid Cases",
+		bp.output_file(filename, title=self.title)
+		p = bp.figure(title=self.title,
 			x_axis_type="datetime",
 			width=1200,
 			height=700)
@@ -79,8 +87,8 @@ class CovidPlotter(object):
 				self.metric,
 				source=source,
 				line_width=2,
-				line_color=self.colors[a]['color'],
-				line_dash=self.colors[a]['dash'])
+				line_color=self.counties[a]['color'],
+				line_dash=self.counties[a]['dash'])
 			legend_items.append((a, [leg]))
 
 
@@ -95,7 +103,7 @@ class CovidPlotter(object):
 		p.legend.label_text_font_size = '12px'
 		p.legend.label_text_font = 'Helvetica'
 		p.legend.location = "top_left"
-		p.legend.background_fill_color = 'gray'
+		p.legend.background_fill_color = 'slategray'
 		p.legend.background_fill_alpha = 0.5
 
 		tools = bm.HoverTool(tooltips=[("Date","@StrDate"),
@@ -106,17 +114,34 @@ class CovidPlotter(object):
 		p.title.text_font = "Helvetica"
 		p.title.text_font_size = "18px"
 
-		p.background_fill_color = 'gray'
+		p.background_fill_color = 'slategray'
 		p.background_fill_alpha = 0.5
-
-
 
 		bp.show(p)
 
 if __name__ == "__main__":
-	x = CovidPlotter('ConfirmedCovidCases', True, True)
-	x = CovidPlotter('ConfirmedCovidCases', True, False)
-	x = CovidPlotter('ConfirmedCovidCases', False, False)
-	x = CovidPlotter('ConfirmedCovidCases', False, True)
-	x = CovidPlotter('PopulationProportionCovidCases', True, True)
-	
+	x = CovidPlotter('ConfirmedCovidCases',
+		True,
+		True,
+		"Confirmed Cases by County, Cumulative")
+	x = CovidPlotter('ConfirmedCovidCases',
+		True,
+		False,
+		"Confirmed Cases by County, Cumulative, Excluding Dublin")
+	x = CovidPlotter('ConfirmedCovidCases',
+		False,
+		True,
+		"Confirmed Cases by County, Seven-Day-Average")
+	x = CovidPlotter('ConfirmedCovidCases',
+		False,
+		False,
+		"Confirmed Cases by County, Seven-Day-Average, Excluding Dublin")
+	x = CovidPlotter('PopulationProportionCovidCases',
+		True,
+		True,
+		"Population Proportion per 100,000, Cumulative")
+	x = CovidPlotter('CaseDensity',
+		True,
+		True,
+		"Case Density per County per Square Kilometre, Cumulative")
+	x.df.to_csv('data/munged/df.csv')

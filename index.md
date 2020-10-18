@@ -2,7 +2,9 @@ _Latest data point: October 14, 2020._
 
 ## Graphs
 
-There are five graphs in the dataset. They are:
+There are six graphs in the dataset, covering two metrics, confirmed cases and cases per population unit.
+
+### 
 1. [Cumulative Cases by County](/covid_ireland/plots/confirmedcovidcases_cumulative.html). This is the raw data from [the official government source](https://covid19ireland-geohive.hub.arcgis.com/datasets/d9be85b30d7748b5b7c09450b8aede63_0). The most recent date is October 5th, 2020.
 
 2. [Cumulative Cases by County, excluding Dublin](/covid_ireland/plots/confirmedcovidcases_cumulative_excluding_dublin.html). Because Dublin is so much bigger than any other county, the detail of the other twenty-five counties gets lost. This the data above minus Dublin.

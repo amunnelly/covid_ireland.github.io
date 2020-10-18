@@ -1,0 +1,162 @@
+{
+	"Antrim": {
+		"color": "yellow",
+		"dash": "solid",
+		"area": 3046
+	},
+	"Armagh": {
+		"color": "orange",
+		"dash": "solid",
+		"area": 1326
+	},
+	"Dublin": {
+		"color": "dodgerblue",
+		"dash": "solid",
+		"area": 922
+	},
+	"Cavan": {
+		"color": "blue",
+		"dash": "dashed",
+		"area": 1932
+	},
+	"Carlow": {
+		"color": "red",
+		"dash": "solid",
+		"area": 897
+	},
+	"Kerry": {
+		"color": "green",
+		"dash": "solid",
+		"area": 4807
+	},
+	"Kilkenny": {
+		"color": "goldenrod",
+		"dash": "solid",
+		"area": 2073
+	},
+	"Kildare": {
+		"color": "white",
+		"dash": "solid",
+		"area": 1695
+	},
+	"Wicklow": {
+		"color": "blue",
+		"dash": "dotted",
+		"area": 2027
+	},
+	"Clare": {
+		"color": "yellow",
+		"dash": "dashed",
+		"area": 3450
+	},
+	"Cork": {
+		"color": "red",
+		"dash": "dashed",
+		"area": 7500
+	},
+	"Derry": {
+		"color": "red",
+		"dash": "dotted",
+		"area": 2075
+	},
+	"Down": {
+		"color": "red",
+		"dash": "dotdash",
+		"area": 2466
+	},
+	"Donegal": {
+		"color": "green",
+		"dash": "dashed",
+		"area": 4861
+	},
+	"Fermanagh": {
+		"color": "green",
+		"dash": "dotted",
+		"area": 1691
+	},
+	"Galway": {
+		"color": "maroon",
+		"dash": "solid",
+		"area": 6149
+	},
+	"Westmeath": {
+		"color": "maroon",
+		"dash": "dashed",
+		"area": 1840
+	},
+	"Laois": {
+		"color": "royalblue",
+		"dash": "dotdash",
+		"area": 1720
+	},
+	"Leitrim": {
+		"color": "green",
+		"dash": "dotdash",
+		"area": 1590
+	},
+	"Wexford": {
+		"color": "purple",
+		"dash": "solid",
+		"area": 2367
+	},
+	"Longford": {
+		"color": "royalblue",
+		"dash": "solid",
+		"area": 1091
+	},
+	"Louth": {
+		"color": "crimson",
+		"dash": "solid",
+		"area": 826
+	},
+	"Limerick": {
+		"color": "lawngreen",
+		"dash": "solid",
+		"area": 2756
+	},
+	"Mayo": {
+		"color": "lawngreen",
+		"dash": "dashed",
+		"area": 5586
+	},
+	"Meath": {
+		"color": "lawngreen",
+		"dash": "dotted",
+		"area": 2342
+	},
+	"Monaghan": {
+		"color": "white",
+		"dash": "dashed",
+		"area": 1295
+	},
+	"Waterford": {
+		"color": "white",
+		"dash": "dotted",
+		"area": 1857
+	},
+	"Roscommon": {
+		"color": "yellow",
+		"dash": "dotted",
+		"area": 2548
+	},
+	"Sligo": {
+		"color": "black",
+		"dash": "solid",
+		"area": 1838
+	},
+	"Tipperary": {
+		"color": "blue",
+		"dash": "solid",
+		"area": 4305
+	},
+	"Tyrone": {
+		"color": "crimson",
+		"dash": "dashed",
+		"area": 3263
+	},
+	"Offaly": {
+		"color": "lawngreen",
+		"dash": "dotdash",
+		"area": 2001
+	}
+}
