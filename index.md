@@ -8,23 +8,21 @@ There are six graphs in the dataset, covering two metrics, confirmed cases and c
 
 ### Confirmed Covid Cases
 
-1. [Cumulative Cases by County](/covid_ireland/plots/confirmedcovidcases_cumulative.html). The data broken down by day and by county.
+* [Cumulative Cases by County](/covid_ireland/plots/confirmedcovidcases_cumulative.html). The data broken down by day and by county.
 
-2. [Cumulative Cases by County, excluding Dublin](/covid_ireland/plots/confirmedcovidcases_cumulative_excluding_dublin.html). Because Dublin is so much bigger than any other county, the detail of the other twenty-five counties gets lost. This the data above minus Dublin.
+* [Cumulative Cases by County, excluding Dublin](/covid_ireland/plots/confirmedcovidcases_cumulative_excluding_dublin.html). Because Dublin is so much bigger than any other county, the detail of the other twenty-five counties gets lost. This the data above minus Dublin.
 
-3. [Seven-Day Average of Cases by County](/covid_ireland/plots/confirmedcovidcases_seven_day_average.html). Again, from the official data, with a seven-day-average replacing the cumulative count. A seven-day-average because a daily count makes for a very noisy graph.
+* [Seven-Day Average of Cases by County](/covid_ireland/plots/confirmedcovidcases_seven_day_average.html). Again, from the official data, with a seven-day-average replacing the cumulative count. A seven-day-average because a daily count makes for a very noisy graph.
 
-4. [Seven-Day Average of Cases by County, excluding Dublin](/covid_ireland/plots/confirmedcovidcases_seven_day_average_excluding_dublin.html). Again, Dublin excluded to make the other counties' data clearer.
+* [Seven-Day Average of Cases by County, excluding Dublin](/covid_ireland/plots/confirmedcovidcases_seven_day_average_excluding_dublin.html). Again, Dublin excluded to make the other counties' data clearer.
 
 ### Cases per Population Unit
 
 The official data's preferred rate of change metric is `Population Proportion by County`, which is fine as far as it goes. However, neither population nor area is even distributed across the country, and this makes it a little less than satisfactory.
 
-5. [Population Proportion of Cases by County, cumulative](/covid_ireland/plots/populationproportioncovidcases_cumulative.html) is the graph of this offical metric.
+* [Population Proportion of Cases by County, cumulative](/covid_ireland/plots/populationproportioncovidcases_cumulative.html) is the graph of this offical metric.
 
-In an effort to even things out, I divided the county population by the county area as recorded in [Wikipedia](https://en.wikipedia.org/wiki/List_of_Irish_counties_by_area), and then expressed the number of cases divided by this population per square kilometre as `Case Density`. It's fine as far as it goes, but it doesn't really tell us that much more than the earlier graph. I include it for the sake of it, as much as anything.
-
-6. [Case Density](/covid_ireland/plots/casedensity_cumulative.html) 
+* In an effort to even things out, I divided the county population by the county area as recorded in [Wikipedia](https://en.wikipedia.org/wiki/List_of_Irish_counties_by_area), and then expressed the number of cases divided by this population per square kilometre as `Case Density`. It's fine as far as it goes, but it doesn't really tell us that much more than the earlier graph. I include it for the sake of it, as much as anything. [Case Density](/covid_ireland/plots/casedensity_cumulative.html) 
 
 ## Interacting with the Graphs
 

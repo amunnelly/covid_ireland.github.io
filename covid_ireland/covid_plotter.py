@@ -58,7 +58,7 @@ class CovidPlotter(object):
 
 
 	def create_filename(self):
-		count_ = "_seven-day_average"
+		count_ = "_seven_day_average"
 		dublin = "_excluding_dublin"
 		if self.cumulative:
 			count_ = "_cumulative"
