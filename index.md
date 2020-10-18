@@ -1,3 +1,5 @@
+# Covid-19 and Ireland
+
 _Latest data point: October 14, 2020._
 
 ## Graphs
