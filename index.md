@@ -1,12 +1,15 @@
 # Covid-19 and Ireland
 
-_Latest data point: October 14, 2020._
+_Latest data point: December 28, 2020._
 
 ## Graphs
 
-There are six graphs in the dataset, covering two metrics, confirmed cases and cases per population unit. This the raw data is taken from [the official government source](https://covid19ireland-geohive.hub.arcgis.com/datasets/d9be85b30d7748b5b7c09450b8aede63_0).
+The raw data is taken from [the official government source](https://covid19ireland-geohive.hub.arcgis.com/datasets/d9be85b30d7748b5b7c09450b8aede63_0).
 
 ### Confirmed Covid Cases
+
+* [Cumulative Cases Nationally](/covid_ireland/plots/national_confirmedcovidcases.html). Confirmed cases per day, seven-day-average of confirmed cases per day.
+
 
 * [Cumulative Cases by County](/covid_ireland/plots/confirmedcovidcases_cumulative.html). The data broken down by day and by county.
 
