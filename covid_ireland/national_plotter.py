@@ -54,25 +54,27 @@ class NationalPlotter(object):
 			height=700)
 		temp = data.copy()
 		temp['StrDate'] = temp['TimeStamp'].apply(lambda x: x.strftime("%a, %b %d"))
+		temp['Base'] = 0
 		source = bp.ColumnDataSource(temp)
-		p.line("TimeStamp",
+		p.varea("TimeStamp",
 			"Daily",
+			"Base",
 			source=source,
-			line_width=2,
-			line_color="dodgerblue",
+			fill_color="pink",
+			fill_alpha=0.5,
 			legend_label="Daily Cases")
 
 		p.line("TimeStamp",
 			"Average",
 			source=source,
-			line_width=2,
-			line_color="blue",
+			line_width=3,
+			line_color="crimson",
 			legend_label="Average Daily Cases")
 
 
 		tools = bm.HoverTool(tooltips=[("Date","@StrDate"),
-										("Daily Cases","@Daily"),
-										("Average Cases","@Average")])
+										("Daily Cases","@Daily{0, 0}"),
+										("Average Cases","@Average{0, 0}")])
 		p.add_tools(tools)
 
 		p.legend.location = "top_left"
@@ -81,7 +83,8 @@ class NationalPlotter(object):
 		p.title.text_font = "Helvetica"
 		p.title.text_font_size = "18px"
 		p.background_fill_color = 'slategray'
-		p.background_fill_alpha = 0.25
+		# p.background_fill_alpha = 0.25
+		p.xaxis.formatter = bm.DatetimeTickFormatter(months=["%b, %Y"], days=["%b, %d"], hours=["%H:%M"])
 
 		bp.show(p)
 
