@@ -1,6 +1,6 @@
 # Covid-19 and Ireland
 
-_Latest data point: December 31, 2020._
+_Latest data point: January 1, 2021._
 
 ## Graphs
 
