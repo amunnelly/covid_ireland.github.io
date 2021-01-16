@@ -10,7 +10,7 @@ if test -f "$FILE"; then
   python covid_plotter.py
 
 else
-  echo "You haven't downloaded the latest data."
+  read -p "You haven't downloaded the latest data. Hit enter to exit."
   exit 1
 
 fi
