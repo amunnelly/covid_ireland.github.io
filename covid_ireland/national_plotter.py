@@ -71,7 +71,8 @@ class NationalPlotter(object):
 
 		tools = bm.HoverTool(tooltips=[("Date","@StrDate"),
 										("Daily Cases","@Daily{0, 0}"),
-										("Average Cases","@Average{0, 0}")])
+										("Average Cases","@Average{0, 0}")],
+							mode="vline")
 		p.add_tools(tools)
 
 		p.legend.location = "top_left"

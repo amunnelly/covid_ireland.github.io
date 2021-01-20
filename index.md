@@ -1,6 +1,6 @@
 # Covid-19 and Ireland
 
-_Latest data point: January 16, 2021._
+_Latest data point: January 18, 2021._
 
 ## Graphs
 
@@ -25,7 +25,7 @@ The official data's preferred rate of change metric is `Population Proportion by
 
 * [Population Proportion of Cases by County, cumulative](/covid_ireland/plots/populationproportioncovidcases_cumulative.html) is the graph of this offical metric.
 
-* In an effort to even things out, I divided the county population by the county area as recorded in [Wikipedia](https://en.wikipedia.org/wiki/List_of_Irish_counties_by_area), and then expressed the number of cases divided by this population per square kilometre as `Case Density`. It's fine as far as it goes, but it doesn't really tell us that much more than the earlier graph. I include it for the sake of it, as much as anything. [Case Density](/covid_ireland/plots/casedensity_cumulative.html) 
+* In an effort to even things out, I divided the county population by the county area as recorded in [Wikipedia](https://en.wikipedia.org/wiki/List_of_Irish_counties_by_area), and then expressed the number of cases divided by this population per square kilometre as `Case Density`. It's fine as far as it goes, but it doesn't really tell us that much more than the earlier graph. I include it for the sake of it, as much as anything. [Case Density](/covid_ireland/plots/casedensity_cumulative.html)
 
 ## Interacting with the Graphs
 
