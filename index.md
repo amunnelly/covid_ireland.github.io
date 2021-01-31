@@ -1,6 +1,6 @@
 # Covid-19 and Ireland
 
-_Latest data point: January 20, 2021._
+_Latest data point: January 29, 2021._
 
 ## Graphs
 
@@ -8,7 +8,7 @@ The raw data is taken from [the official government source](https://covid19irela
 
 ### Confirmed Covid Cases
 
-* [Cumulative Cases Nationally](/covid_ireland/plots/national_confirmedcovidcases.html). Confirmed cases per day, seven-day-average of confirmed cases per day.
+* [Seven-Day National Average](/covid_ireland/plots/national_confirmedcovidcases.html). Confirmed cases per day, seven-day-average of confirmed cases per day.
 
 
 * [Cumulative Cases by County](/covid_ireland/plots/confirmedcovidcases_cumulative.html). The data broken down by day and by county.
