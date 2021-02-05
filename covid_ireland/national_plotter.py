@@ -9,7 +9,7 @@ class NationalPlotter(object):
 	def __init__(self, metric, title):
 		self.metric = metric
 		self.title = title
-		self.df = pd.read_csv('data/Covid19CountyStatisticsHPSCIreland.csv')
+		self.df = pd.read_csv('covid_ireland/data/Covid19CountyStatisticsHPSCIreland.csv')
 		self.df['TimeStamp'] = pd.to_datetime(self.df['TimeStamp'])
 		self.dailies = self.identify_daily_figures(7)
 		print(self.dailies.tail())
@@ -39,7 +39,7 @@ class NationalPlotter(object):
 
 
 	def create_filename(self):
-		return "".join(["plots/national_", self.metric.lower(), ".html"])
+		return "".join(["covid_ireland/plots/national_", self.metric.lower(), ".html"])
 
 
 	def create_plot(self, data):

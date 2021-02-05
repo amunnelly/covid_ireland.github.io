@@ -12,8 +12,8 @@ class CovidPlotter(object):
         self.cumulative = cumulative
         self.dublin = dublin
         self.title = title
-        self.df = pd.read_csv('data/Covid19CountyStatisticsHPSCIreland.csv')
-        with open('data/counties.json') as f:
+        self.df = pd.read_csv('covid_ireland/data/Covid19CountyStatisticsHPSCIreland.csv')
+        with open('covid_ireland/data/counties.json') as f:
             self.counties = json.load(f)
         self.df['TimeStamp'] = pd.to_datetime(self.df['TimeStamp'])
         self.find_case_density()
@@ -78,7 +78,7 @@ class CovidPlotter(object):
         if self.dublin:
             dublin = ""
         filename = "".join([self.metric.lower(), count_, dublin])
-        return "".join(["plots/", filename, ".html"])
+        return "".join(["covid_ireland/plots/", filename, ".html"])
         
 
 
@@ -164,4 +164,4 @@ if __name__ == "__main__":
     #     False,
     #     True,
     #     "Case Density per County per Square Kilometre, Seven-Day-Average")
-    x.df.to_csv('data/munged/df.csv')
+    x.df.to_csv('covid_ireland/data/munged/df.csv')
