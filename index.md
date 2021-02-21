@@ -1,6 +1,6 @@
 # Covid-19 and Ireland
 
-_Latest data point: February 11, 2021._
+_Latest data point: February 18, 2021._
 
 ## Graphs
 
@@ -33,4 +33,4 @@ The official data's preferred rate of change metric is `Population Proportion by
 * Hover over a line to see the county, date, and number of cases at that date.
 
 ## Usefulness of the Data
-The data is a record of what happened over the past six months broken down by county. It cannot tell us anything about the next six months, or year, or however long this is going to take. Sadly, the difficulties experienced in testing and tracing make that more or less impossible in the Irish case.
+The data is a record of what happened since all this began a little before St Patrick's Day, 2020. The official data sources are not always consistent, which is disappointing but not, perhaps, entirely surprising. That said, the broad strokes are consistent.
